@@ -1,0 +1,57 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User type:</strong>
+  <%= @user.user_type %>
+</p>
+
+<p>
+  <strong>Document type:</strong>
+  <%= @user.document_type %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @user.document %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Phone1:</strong>
+  <%= @user.phone1 %>
+</p>
+
+<p>
+  <strong>Emission date:</strong>
+  <%= @user.emission_date %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @user.expiration_date %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Phone2:</strong>
+  <%= @user.phone2 %>
+</p>
+
+<%= link_to 'edit', edit_user_path(@user), class: "material-icons"%> |
+<%= link_to 'arrow_back', users_path, class: "material-icons" %>
+</div>

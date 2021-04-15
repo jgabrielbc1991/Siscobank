@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Usuarios</h1>
+
+<div class="container">
+
+<table class="responsive-table">
+  <thead>
+    <tr>
+      <th>Tipo de Usuario</th>
+      <th>Tipo de Documento</th>
+      <th>Número de Documento</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Teléfono Principal</th>
+      <th>Fecha de Emisión</th>
+      <th>Fecha de Vencimiento</th>
+      <th>Email</th>
+      <th>Teléfono Secundario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.user_type %></td>
+        <td><%= user.document_type %></td>
+        <td><%= user.document %></td>
+        <td><%= user.name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.phone1 %></td>
+        <td><%= user.emission_date %></td>
+        <td><%= user.expiration_date %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone2 %></td>
+        <td><%= link_to 'visibility', user,  class: "material-icons" %></td>
+        <td><%= link_to 'edit', edit_user_path(user), class: "material-icons" %></td>
+        <td><%= link_to 'delete', user, method: :delete, class: "material-icons", data: { confirm: '¿estas seguro?, esta acción es irreversible' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to "+", new_user_path, class: "btn-floating btn-large waves-effect waves-light indigo", method: :get %>
+
+</div>

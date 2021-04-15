@@ -1,0 +1,82 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <span class="red-text text-darken-2">
+        <p><%= pluralize(user.errors.count, "error") %> han impedido que se guarde el usuario:</p>
+      </span>
+      <ul>
+        <span class="red-text text-darken-2">
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </span> 
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="container">
+  
+  <div class="field">
+  <script> new ProductsView();  </script>
+  <%= form.label :'Tipo de Usuario' %>
+  <%= form.select :user_type, options_for_select(User.user_type_list, @user.user_type), class: "browser-default"%>
+  
+  </div>
+
+  <div class="field">
+    <%= form.label :'Tipo de Documento' %>
+    <%= form.select :document_type, options_for_select(User.document_type_list, @user.document_type) %>
+  </div>
+  
+
+  <div class="field">
+    <%= form.label :'Documento' %>
+    <%= form.text_field :document %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Nombres' %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Apellidos' %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Teléfono Principal' %>
+    <%= form.text_field :phone1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Fecha de Emisión' %>
+    <%= form.date_field :emission_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Fecha de Vencimiento' %>
+    <%= form.date_field :expiration_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Teléfono Secundario' %>
+    <%= form.text_field :phone2 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Aceptar" %>
+  </div>
+
+  </div>
+
+  
+
+  
+        
+<% end %>

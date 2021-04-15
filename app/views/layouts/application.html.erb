@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SiscoBank</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+
+  
+
+
+  <body>
+  
+  <nav>
+    <div class="nav-wrapper indigo">
+      <a href="/" class="brand-logo">SiscoBank</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="users">Usuarios</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
+    <%= yield %>
+  </body>
+</html>
