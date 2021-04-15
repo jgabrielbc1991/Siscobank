@@ -1,72 +1,78 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
+
 <%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <span class="red-text text-darken-2">
-        <p><%= pluralize(user.errors.count, "error") %> han impedido que se guarde el usuario:</p>
-      </span>
-      <ul>
-        <span class="red-text text-darken-2">
-          <% user.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </span> 
-      </ul>
-    </div>
-  <% end %>
+
   
   <div class="container">
   
-  <div class="field">
-  <script> new ProductsView();  </script>
+  <div class= "field">
+  <script>$(document).ready(function(){$('select').formSelect();});</script>
   <%= form.label :'Tipo de Usuario' %>
   <%= form.select :user_type, options_for_select(User.user_type_list, @user.user_type), class: "browser-default"%>
-  
   </div>
+  
 
   <div class="field">
     <%= form.label :'Tipo de Documento' %>
-    <%= form.select :document_type, options_for_select(User.document_type_list, @user.document_type) %>
+    <%= form.select :document_type, options_for_select(User.document_type_list, @user.document_type), class: "browser-default" %>
   </div>
   
 
   <div class="field">
     <%= form.label :'Documento' %>
     <%= form.text_field :document %>
+    <span class="help-inline">
+ <%= @user.errors[:document].any? ? @user.errors[:document].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :'Nombres' %>
     <%= form.text_field :name %>
+    <span class="help-inline">
+ <%= @user.errors[:name].any? ? @user.errors[:name].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :'Apellidos' %>
     <%= form.text_field :last_name %>
+    <span class="help-inline">
+ <%= @user.errors[:last_name].any? ? @user.errors[:last_name].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :'Teléfono Principal' %>
     <%= form.text_field :phone1 %>
+    <span class="help-inline">
+ <%= @user.errors[:phone1].any? ? @user.errors[:phone1].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :'Fecha de Emisión' %>
     <%= form.date_field :emission_date %>
+    <span class="help-inline">
+ <%= @user.errors[:emission_date].any? ? @user.errors[:emission_date].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :'Fecha de Vencimiento' %>
     <%= form.date_field :expiration_date %>
+    <span class="help-inline">
+ <%= @user.errors[:expiration_date].any? ? @user.errors[:expiration_date].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :Email %>
     <%= form.email_field :email %>
+    <span class="help-inline">
+ <%= @user.errors[:email].any? ? @user.errors[:email].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="field">
     <%= form.label :'Teléfono Secundario' %>
     <%= form.text_field :phone2 %>
+    <span class="help-inline">
+ <%= @user.errors[:phone2].any? ? @user.errors[:phone2].to_s[/\w([^"]*)/] : "" %></span>
   </div>
 
   <div class="actions">

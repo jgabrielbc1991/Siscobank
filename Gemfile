@@ -3,9 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'materialize-select2-rails'
 gem 'rails-ujs'
 gem 'jquery-rails'
-gem 'foundation-rails'
+gem 'materialize-sass'
 gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'

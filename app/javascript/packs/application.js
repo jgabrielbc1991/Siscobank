@@ -6,9 +6,6 @@
 //= require turbolinks  
 //= require materialize-sprockets
 
-$(document).ready(function(){
-    $('select').formSelect();
-  });
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -18,7 +15,6 @@ import './stylesheets/application'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-jQuery.start()
 
 
         

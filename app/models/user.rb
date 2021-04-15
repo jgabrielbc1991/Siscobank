@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  validates :name, :last_name,:document, :phone1, :email, presence: true
+  validates :name, :last_name,:document, :phone1, :email, presence: { message: "Este es un campo obligatorio" }
   validates :phone1, length: { maximum: 11 }, numericality: { only_integer: true }
   validates :phone2, length: { maximum: 11 }, numericality: { only_integer: true }, allow_blank: true
-  validates :name, :last_name, format: { with: /\A[a-zA-Z]+\z/, message: "Solo permite letras" }, length: { in: 3..50 }
-  validates :user_type, inclusion: { in: %w(N J),    message: "%{value} no es un valor valido" }
-  validates :email, confirmation: true, uniqueness: true
+  validates :name, :last_name, format: { with: /\A^[a-zA-Z '.-]*\z/, message: "solo permite letras" }, length: { in: 3..50 }, allow_blank: true
+  validates :user_type, inclusion: { in: %w(N J), message: "%{value} no es un valor valido" }
+  validates :email, confirmation: true, uniqueness: true,  format: { with: /\A[^@\s]+@[^@\s]+\z/ }
   
   def self.user_type_list
     [['Natural','N'],['Juridico','J']]
